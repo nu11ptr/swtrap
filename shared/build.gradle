@@ -1,0 +1,7 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+dependencies {
+    compileOnly 'org.eclipse.rap:org.eclipse.rap.rwt:3.17.0' // RWT is lowest common denominator
+}

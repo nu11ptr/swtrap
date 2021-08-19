@@ -1,0 +1,4 @@
+rootProject.name = 'swtrap'
+include 'shared'
+include 'swt'
+include 'rwt'
