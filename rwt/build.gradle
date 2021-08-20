@@ -1,0 +1,14 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'org.springframework.boot' version '2.5.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id "org.jetbrains.kotlin.plugin.spring" version "1.5.21"
+}
+
+dependencies {
+    implementation 'org.eclipse.rap:org.eclipse.rap.rwt:3.17.0'
+    implementation "org.springframework.boot:spring-boot-starter-web:2.5.1"
+    implementation project(':shared')
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.1'
+}
