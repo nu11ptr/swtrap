@@ -15,6 +15,7 @@ application {
 eclipseMavenCentral {
     release("4.20.0") {
         implementationNative 'org.eclipse.swt'
+        implementation 'org.eclipse.jface'
         useNativesForRunningPlatform()
     }
 }

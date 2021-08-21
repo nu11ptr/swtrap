@@ -7,6 +7,7 @@ plugins {
 
 dependencies {
     implementation 'org.eclipse.rap:org.eclipse.rap.rwt:3.17.0'
+    implementation 'org.eclipse.rap:org.eclipse.rap.jface:3.17.0'
     implementation "org.springframework.boot:spring-boot-starter-web:2.5.1"
     implementation project(':shared')
 

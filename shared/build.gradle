@@ -3,5 +3,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly 'org.eclipse.rap:org.eclipse.rap.rwt:3.17.0' // RWT is lowest common denominator
+    // RWT is lowest common denominator between RWT and SWT
+    compileOnly 'org.eclipse.rap:org.eclipse.rap.rwt:3.17.0'
+    compileOnly 'org.eclipse.rap:org.eclipse.rap.jface:3.17.0'
 }
