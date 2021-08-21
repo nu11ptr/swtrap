@@ -11,11 +11,6 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean
 import org.springframework.context.annotation.Bean
 import javax.servlet.ServletContextEvent
 
-
-fun main(args: Array<String>) {
-    runApplication<MainApp>(*args)
-}
-
 class MainConfig : ApplicationConfiguration {
     override fun configure(app: Application) {
         app.addEntryPoint("/rwt", MainEntry::class.java, null)
@@ -46,4 +41,8 @@ class MainApp {
 
     @Bean
     fun rwtContextListener(): RWTContextListener = RWTContextListener()
+}
+
+fun main(args: Array<String>) {
+    runApplication<MainApp>(*args)
 }

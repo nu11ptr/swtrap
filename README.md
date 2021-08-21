@@ -45,6 +45,16 @@ export GRAALVM_HOME=<graalvm_folder>
 ./gradlew :swt:run
 ```
 
+## RWT (Native Image)
+
+### Build
+
+NOTE: Currently `native-image` crashes during build - not yet working
+
+```shell
+./gradlew :rwt:nativeBuild
+```
+
 ## RWT (JVM)
 
 ### Build

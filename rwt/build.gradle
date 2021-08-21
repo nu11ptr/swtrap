@@ -1,15 +1,25 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
-    id 'org.springframework.boot' version '2.5.1'
+    id 'org.springframework.boot' version '2.5.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.experimental.aot' version '0.10.3'
     id "org.jetbrains.kotlin.plugin.spring" version "1.5.21"
+    id 'org.graalvm.buildtools.native' version '0.9.3'
+}
+
+repositories {
+    maven { url 'https://repo.spring.io/release' }
 }
 
 dependencies {
     implementation 'org.eclipse.rap:org.eclipse.rap.rwt:3.17.0'
     implementation 'org.eclipse.rap:org.eclipse.rap.jface:3.17.0'
-    implementation "org.springframework.boot:spring-boot-starter-web:2.5.1"
+    implementation "org.springframework.boot:spring-boot-starter-web:2.5.4"
     implementation project(':shared')
 
-    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.1'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.4'
+}
+
+nativeBuild {
+    mainClass = 'com.apisw.swtrap.MainAppKt'
 }

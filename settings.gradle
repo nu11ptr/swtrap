@@ -1,3 +1,10 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url 'https://repo.spring.io/release' }
+    }
+}
+
 rootProject.name = 'swtrap'
 include 'shared'
 include 'swt'
