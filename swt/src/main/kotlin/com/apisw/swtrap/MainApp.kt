@@ -1,26 +1,18 @@
 package com.apisw.swtrap
 
 import org.eclipse.jface.window.ApplicationWindow
-import org.eclipse.swt.widgets.Composite
-import org.eclipse.swt.widgets.Control
-import org.eclipse.swt.widgets.Display
-import org.eclipse.swt.widgets.Shell
-
-object MainApp {
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val window = MainWindow()
-        window.setBlockOnOpen(true)
-        window.open()
-        Display.getCurrent().dispose()
-    }
-}
+import org.eclipse.swt.widgets.*
 
 class MainWindow() : ApplicationWindow(null) {
     private lateinit var view: MainView
 
+    // We will attach our own layout
+    override fun getLayout(): Layout? = null
+
+    // Don't need a toolbar
+    override fun addToolBar(style: Int) {}
+
     override fun createContents(parent: Composite): Control {
-        //super.createContents(parent)
         view = MainView(parent)
         return parent
     }
@@ -30,4 +22,11 @@ class MainWindow() : ApplicationWindow(null) {
         shell.text = "Swtrap"
         shell.shell.forceActive()
     }
+}
+
+fun main(args: Array<String>) {
+    val window = MainWindow()
+    window.setBlockOnOpen(true)
+    window.open()
+    Display.getCurrent().dispose()
 }

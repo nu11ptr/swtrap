@@ -2,6 +2,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'application'
     id 'com.diffplug.eclipse.mavencentral' version '3.31.0'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'org.graalvm.buildtools.native' version '0.9.3'
 }
 
 dependencies {
@@ -9,7 +11,7 @@ dependencies {
 }
 
 application {
-    mainClassName = 'com.apisw.swtrap.MainApp'
+    mainClassName = 'com.apisw.swtrap.MainAppKt'
 }
 
 eclipseMavenCentral {
@@ -18,4 +20,8 @@ eclipseMavenCentral {
         implementation 'org.eclipse.jface'
         useNativesForRunningPlatform()
     }
+}
+
+nativeBuild {
+    fallback = false
 }

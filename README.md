@@ -2,13 +2,37 @@
 
 SWT / RAP Demo
 
-## Run SWT
+## SWT
+
+### Build (JVM)
+
+```shell
+./gradlew :swt:shadowJar
+```
+
+### Build (Native Image)
+
+```shell
+./gradlew :swt:nativeBuild
+```
+
+### Run (JVM)
 
 ```shell
 ./gradlew :swt:run
 ```
 
-## Run RWT
+### Run (Native Image)
+
+NOTE: This is not currently working
+
+```shell
+./gradlew :swt:nativeRun
+```
+
+## RWT
+
+### Run (JVM)
 
 NOTE: The application will be available at <http://localhost:8080/rwt>
 
