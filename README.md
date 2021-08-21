@@ -1,38 +1,59 @@
 # swtrap
 
-SWT / RAP Demo
+SWT/RAP JVM and Native Image Demo
 
-## SWT
+## Global
 
-### Build (JVM)
+### Clean Build (JVM - All projects)
 
 ```shell
-./gradlew :swt:shadowJar
+./gradlew
 ```
 
-### Build (Native Image)
+## SWT (Native Image)
+
+### Update Tracing Agent Data
 
 ```shell
+<graalvm_java_path> -agentlib:native-image-agent=config-output-dir=swt/src/main/resources/META-INF/native-image/ -jar swt/build/libs/swt-all.jar
+```
+
+### Build
+
+```shell
+export GRAALVM_HOME=<graalvm_folder>
 ./gradlew :swt:nativeBuild
 ```
 
-### Run (JVM)
-
-```shell
-./gradlew :swt:run
-```
-
-### Run (Native Image)
-
-NOTE: This is not currently working
+### Run
 
 ```shell
 ./gradlew :swt:nativeRun
 ```
 
-## RWT
+## SWT (JVM)
 
-### Run (JVM)
+### Build
+
+```shell
+./gradlew :swt:build
+```
+
+### Run
+
+```shell
+./gradlew :swt:run
+```
+
+## RWT (JVM)
+
+### Build
+
+```shell
+./gradlew :rwt:build
+```
+
+### Run
 
 NOTE: The application will be available at <http://localhost:8080/rwt>
 

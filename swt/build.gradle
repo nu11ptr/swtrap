@@ -25,3 +25,7 @@ eclipseMavenCentral {
 nativeBuild {
     fallback = false
 }
+
+//shadowJar {
+//    exclude 'META-INF/native-image/**'
+//}
