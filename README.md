@@ -1,6 +1,6 @@
 # swtrap
 
-SWT/RAP JVM and Native Image Demo
+SWT/RAP + JFreeChart - JVM *and* Native Image Demo
 
 ## Global
 
@@ -13,6 +13,8 @@ SWT/RAP JVM and Native Image Demo
 ## SWT (Native Image)
 
 ### Update Tracing Agent Data
+
+NOTE: This should be done after every major change or dependency addition
 
 ```shell
 <graalvm_java_path> -agentlib:native-image-agent=config-output-dir=swt/src/main/resources/META-INF/native-image/ -jar swt/build/libs/swt-all.jar
@@ -47,12 +49,25 @@ export GRAALVM_HOME=<graalvm_folder>
 
 ## RWT (Native Image)
 
-### Build
+### Update Tracing Agent Data
 
-NOTE: Currently `native-image` crashes during build - not yet working
+NOTE: This should be done after every major change or dependency addition
 
 ```shell
+<graalvm_java_path> -agentlib:native-image-agent=config-output-dir=rwt/src/main/resources/META-INF/native-image/ -jar rwt/build/libs/rwt.jar
+```
+
+### Build
+
+```shell
+export GRAALVM_HOME=<graalvm_folder>
 ./gradlew :rwt:nativeBuild
+```
+
+### Run
+
+```shell
+./gradlew :rwt:nativeRun
 ```
 
 ## RWT (JVM)

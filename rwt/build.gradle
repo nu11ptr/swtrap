@@ -3,7 +3,7 @@ plugins {
     id 'org.springframework.boot' version '2.5.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     //FIXME: This breaks JVM builds - why?
-    //id 'org.springframework.experimental.aot' version '0.10.3'
+    id 'org.springframework.experimental.aot' version '0.10.3'
     id "org.jetbrains.kotlin.plugin.spring" version "1.5.21"
     id 'org.graalvm.buildtools.native' version '0.9.3'
 }
@@ -18,12 +18,15 @@ dependencies {
     // TODO: Update JFreeChart to 1.5.3 or higher after PR merged
     // https://github.com/jfree/jfreechart-swt/pull/1
     implementation 'org.jfree:jfreechart:1.0.19'
-    implementation "org.springframework.boot:spring-boot-starter-web:2.5.4"
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
     implementation project(':shared')
 
-    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.4'
+    // Not support by spring native yet
+    //developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.4'
 }
 
 nativeBuild {
     mainClass = 'com.apisw.swtrap.MainAppKt'
+    //buildArgs.add('-H:+ReportExceptionStackTraces')
+    classpath(processAotResources.outputs, compileAotJava.outputs)
 }
