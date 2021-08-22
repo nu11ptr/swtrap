@@ -8,6 +8,9 @@ plugins {
 
 dependencies {
     implementation project(':shared')
+    implementation('org.jfree:jfreechart-swt:1.0') {
+        exclude group: 'org.eclipse.swt', module: 'org.eclipse.swt.cocoa.macosx.x86_64'
+    }
 }
 
 application {
@@ -24,6 +27,7 @@ eclipseMavenCentral {
 
 nativeBuild {
     fallback = false
+    jvmArgs.add('-Djava.awt.headless=false')
 }
 
 shadowJar {

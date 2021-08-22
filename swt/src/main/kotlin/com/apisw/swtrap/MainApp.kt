@@ -1,32 +1,33 @@
 package com.apisw.swtrap
 
-import org.eclipse.jface.window.ApplicationWindow
-import org.eclipse.swt.widgets.*
+import org.eclipse.swt.SWT
+import org.eclipse.swt.layout.FillLayout
+import org.eclipse.swt.widgets.Composite
+import org.eclipse.swt.widgets.Display
+import org.eclipse.swt.widgets.Shell
+import org.jfree.chart.JFreeChart
+import org.jfree.chart.swt.ChartComposite
 
-class MainWindow() : ApplicationWindow(null) {
-    private lateinit var view: MainView
-
-    // We will attach our own layout
-    override fun getLayout(): Layout? = null
-
-    // Don't need a toolbar
-    override fun addToolBar(style: Int) {}
-
-    override fun createContents(parent: Composite): Control {
-        view = MainView(parent)
-        return parent
-    }
-
-    override fun configureShell(shell: Shell) {
-        super.configureShell(shell)
-        shell.text = "Swtrap"
-        shell.shell.forceActive()
-    }
+private fun addChart(chart: JFreeChart, parent: Composite) {
+    ChartComposite(parent, SWT.NONE, chart, true)
 }
 
 fun main(args: Array<String>) {
-    val window = MainWindow()
-    window.setBlockOnOpen(true)
-    window.open()
-    Display.getCurrent().dispose()
+    val display = Display()
+
+    val shell = Shell(display).also {
+        it.setSize(640, 480)
+        it.layout = FillLayout()
+        it.text = "Swtrap"
+        MainView(it, ::addChart)
+        it.forceActive()
+        it.open()
+    }
+
+    while (!shell.isDisposed) {
+        if (!display.readAndDispatch()) {
+            display.sleep()
+        }
+    }
+    display.dispose()
 }

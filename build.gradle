@@ -7,9 +7,6 @@ defaultTasks("clean", "build")
 allprojects {
     repositories {
         mavenCentral()
-        flatDir {
-            dirs 'build/libs'
-        }
     }
 
     compileKotlin {

@@ -6,4 +6,8 @@ dependencies {
     // RWT is lowest common denominator between RWT and SWT
     compileOnly 'org.eclipse.rap:org.eclipse.rap.rwt:3.17.0'
     compileOnly 'org.eclipse.rap:org.eclipse.rap.jface:3.17.0'
+
+    // TODO: Update JFreeChart to 1.5.3 or higher after PR merged
+    // https://github.com/jfree/jfreechart-swt/pull/1
+    implementation 'org.jfree:jfreechart:1.0.19'
 }
